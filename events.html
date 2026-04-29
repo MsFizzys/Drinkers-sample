@@ -1,415 +1,851 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Host your private event at Drinker's Bar. Intimate gatherings, corporate functions, full buyouts, and custom bar programs. Inquire today." />
-  <meta name="keywords" content="Drinker's Bar private events, bar venue rental, corporate event bar, private party bar, event inquiry" />
-  <meta property="og:title" content="Private Events — Drinker's Bar" />
-  <meta property="og:description" content="Make it yours for the night. Drinker's Bar hosts private events, corporate functions, and celebrations worth remembering." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://drinkersbar.com/events.html" />
-  <title>Private Events — Drinker's Bar</title>
-  <link rel="stylesheet" href="style.css" />
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "EventVenue",
-    "name": "Drinker's Bar — Private Events",
-    "description": "Upscale bar venue available for private events, buyouts, corporate functions, and celebrations.",
-    "url": "https://drinkersbar.com/events.html"
-  }
-  </script>
-  <style>
-    /* ── Page-specific tweaks ── */
-    .event-types {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      margin: 4rem 0;
-    }
+/* ============================================================
+   DRINKER'S BAR — style.css
+   Palette: Black · Crimson · Tan/Gold · Off-White
+   Fonts: MedievalSharp (bar name) · Rockslane via Google alt
+          · Cormorant Garamond (body elegance)
+   ============================================================ */
 
-    .event-type-card {
-      background: var(--deep);
-      padding: 2.2rem 2rem;
-      transition: background .3s ease;
-    }
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Cinzel:wght@400;600;700&display=swap');
 
-    .event-type-card:hover { background: #1e1a18; }
+:root {
+  --black:       #0d0b0b;
+  --deep:        #1a1614;
+  --crimson:     #cc1f1f;
+  --crimson-dim: #9b1a1a;
+  --gold:        #c9a35a;
+  --tan:         #c4a46b;
+  --cream:       #ffffff;
+  --muted:       #c8c0b4;
+  --border:      rgba(255,255,255,.12);
 
-    .event-type-card h3 {
-      font-family: var(--font-title);
-      font-size: .9rem;
-      font-weight: 700;
-      letter-spacing: .14em;
-      color: #e82222;
-      margin-bottom: .5rem;
-      text-transform: uppercase;
-    }
+  --font-bar:    'Special Elite', cursive;  /* bar name */
+  --font-title:  'Cinzel', serif;           /* section headings */
+  --font-body:   'Cormorant Garamond', serif;
 
-    .event-type-card p {
-      font-size: .92rem;
-      color: #d4cec6;
-      line-height: 1.7;
-    }
+  --ease-out:    cubic-bezier(.16,1,.3,1);
+  --ease-in-out: cubic-bezier(.76,0,.24,1);
+}
 
-    .capacity-bar {
-      display: flex;
-      gap: 3rem;
-      border: 1px solid var(--border);
-      padding: 2rem 2.5rem;
-      margin-bottom: 4rem;
-      background: var(--deep);
-    }
+/* ── Reset & Base ──────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    .cap-stat { text-align: center; flex: 1; }
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
 
-    .cap-stat .num {
-      display: block;
-      font-family: var(--font-title);
-      font-size: 2.2rem;
-      color: var(--gold);
-      line-height: 1;
-      margin-bottom: .35rem;
-    }
+body {
+  background-color: var(--black);
+  color: var(--cream);
+  font-family: var(--font-body);
+  font-weight: 300;
+  line-height: 1.75;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
 
-    .cap-stat .label {
-      font-size: .68rem;
-      letter-spacing: .3em;
-      text-transform: uppercase;
-      color: #c8c0b4;
-    }
+img { display: block; max-width: 100%; }
 
-    .cap-divider {
-      width: 1px;
-      background: var(--border);
-      align-self: stretch;
-    }
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color .25s ease;
+}
 
-    @media (max-width: 600px) {
-      .event-types { grid-template-columns: 1fr; }
-      .capacity-bar { flex-wrap: wrap; gap: 1.5rem; }
-      .cap-divider { display: none; }
-    }
-  </style>
-</head>
-<body>
+/* ── Grain overlay (body-level) ────────────────────────── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.07'/%3E%3C/svg%3E");
+  background-size: 200px;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: .45;
+}
 
-  <!-- ══ HEADER ══════════════════════════════════════════════ -->
-  <header class="site-header" id="header">
-    <a href="index.html" class="bar-name">Drinker's Bar</a>
-    <nav aria-label="Primary navigation">
-      <ul class="site-nav">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="index.html#offerings">Offerings</a></li>
-        <li><a href="index.html#hours">Visit</a></li>
-        <li><a href="events.html">Private Events</a></li>
-      </ul>
-    </nav>
-    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </header>
+/* ── Header ────────────────────────────────────────────── */
+.site-header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.4rem 2.5rem;
+  background: rgba(13,11,11,.82);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  transition: padding .4s var(--ease-out), background .4s ease;
+}
 
-  <!-- Mobile nav drawer -->
-  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
-    <a href="index.html" onclick="closeMobile()">Home</a>
-    <a href="index.html#offerings" onclick="closeMobile()">Offerings</a>
-    <a href="index.html#hours" onclick="closeMobile()">Visit</a>
-    <a href="events.html" onclick="closeMobile()">Private Events</a>
-  </nav>
+.site-header.scrolled {
+  padding: .9rem 2.5rem;
+  background: rgba(13,11,11,.96);
+}
 
-  <main>
+.bar-name {
+  font-family: var(--font-bar);
+  font-size: clamp(.95rem, 1.8vw, 1.25rem);
+  font-weight: 400;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  transition: color .3s ease;
+}
 
-    <!-- ══ PAGE HERO ══════════════════════════════════════════ -->
-    <section class="page-hero" aria-labelledby="events-heading">
-      <div class="page-hero-inner">
-        <p class="section-label">Private Events</p>
-        <h1 class="section-title" id="events-heading">Make it yours<br>for the night.</h1>
-        <div class="divider"></div>
-        <p style="font-size:1.05rem;color:rgba(255,255,255,.75);max-width:520px;font-style:italic;">
-          From an intimate dinner with your closest people to a full-venue buyout — we build the experience around you.
-        </p>
-      </div>
-    </section>
+.bar-name:hover { color: var(--cream); }
 
-    <!-- ══ EVENT TYPES + STATS ════════════════════════════════ -->
-    <section class="section" aria-label="Event types and capacity">
+/* ── Navigation ─────────────────────────────────────────── */
+.site-nav {
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+  list-style: none;
+}
 
-      <!-- Capacity bar -->
-      <div class="capacity-bar reveal" role="list" aria-label="Venue capacity stats">
-        <div class="cap-stat" role="listitem">
-          <span class="num">120</span>
-          <span class="label">Standing capacity</span>
-        </div>
-        <div class="cap-divider" aria-hidden="true"></div>
-        <div class="cap-stat" role="listitem">
-          <span class="num">60</span>
-          <span class="label">Seated capacity</span>
-        </div>
-        <div class="cap-divider" aria-hidden="true"></div>
-        <div class="cap-stat" role="listitem">
-          <span class="num">Full</span>
-          <span class="label">Buyout available</span>
-        </div>
-        <div class="cap-divider" aria-hidden="true"></div>
-        <div class="cap-stat" role="listitem">
-          <span class="num">Custom</span>
-          <span class="label">Bar programs</span>
-        </div>
-      </div>
+.site-nav a {
+  font-family: var(--font-body);
+  font-size: .78rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: #d4cec6;
+  position: relative;
+  padding-bottom: 3px;
+}
 
-      <!-- Event types -->
-      <p class="section-label reveal">What We Host</p>
-      <h2 class="section-title reveal">Every occasion. No exceptions.</h2>
-      <div class="divider reveal"></div>
+.site-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 0; height: 1px;
+  background: #e82222;
+  transition: width .35s var(--ease-out);
+}
 
-      <div class="event-types reveal">
-        <article class="event-type-card">
-          <h3>Corporate &amp; Company</h3>
-          <p>Happy hours, team events, client entertainment, and launch nights. We handle the bar — you handle the guest list.</p>
-        </article>
-        <article class="event-type-card">
-          <h3>Birthdays &amp; Milestones</h3>
-          <p>Reserve the whole room or just a section. Custom cocktail menus, bottle service, and a space that actually feels special.</p>
-        </article>
-        <article class="event-type-card">
-          <h3>Rehearsal Dinners</h3>
-          <p>A refined, relaxed evening before the big day. We work with your timeline, your headcount, and your vision.</p>
-        </article>
-        <article class="event-type-card">
-          <h3>Private Buyouts</h3>
-          <p>Take the entire venue. Full staff, full bar program, full focus on your event from open to close.</p>
-        </article>
-      </div>
-    </section>
+.site-nav a:hover { color: #ffffff; }
+.site-nav a:hover::after { width: 100%; }
 
-    <!-- ══ INQUIRY FORM ════════════════════════════════════════ -->
-    <section class="specials-section" id="inquiry">
-      <div class="section">
-        <div style="text-align:center;margin-bottom:3.5rem;">
-          <p class="section-label reveal">Get In Touch</p>
-          <h2 class="section-title reveal">Start the conversation.</h2>
-          <div class="divider reveal" style="margin:0 auto;"></div>
-          <p class="reveal" style="font-size:.95rem;color:#c8c0b4;margin-top:1rem;font-style:italic;">
-            Fill out the form below and our events team will be in touch within 24 hours.
-          </p>
-        </div>
+/* ── Hamburger (mobile) ─────────────────────────────────── */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 4px;
+}
 
-        <div class="form-section reveal">
+.hamburger span {
+  display: block;
+  width: 24px; height: 1px;
+  background: var(--gold);
+  transition: transform .3s ease, opacity .3s ease;
+}
 
-          <!-- Success message (shown on submit) -->
-          <div class="form-success" id="formSuccess" role="alert">
-            <div class="divider" style="margin:0 auto 1.5rem;"></div>
-            <p>Thank you. We'll be in touch within 24 hours to discuss your event.</p>
-            <br>
-            <a href="index.html" class="btn btn-gold">Return Home</a>
-          </div>
+.hamburger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
 
-          <form id="eventForm" novalidate aria-label="Private event inquiry form">
-            <div class="form-grid">
+/* Mobile nav drawer */
+.mobile-nav {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(13,11,11,.97);
+  z-index: 99;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+}
 
-              <div class="form-group">
-                <label for="firstName">First Name *</label>
-                <input type="text" id="firstName" name="firstName" autocomplete="given-name" placeholder="Jane" required />
-              </div>
+.mobile-nav.open { display: flex; }
 
-              <div class="form-group">
-                <label for="lastName">Last Name *</label>
-                <input type="text" id="lastName" name="lastName" autocomplete="family-name" placeholder="Smith" required />
-              </div>
+.mobile-nav a {
+  font-family: var(--font-title);
+  font-size: 1.4rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--cream);
+}
 
-              <div class="form-group">
-                <label for="email">Email Address *</label>
-                <input type="email" id="email" name="email" autocomplete="email" placeholder="jane@example.com" required />
-              </div>
+.mobile-nav a:hover { color: var(--gold); }
 
-              <div class="form-group">
-                <label for="phone">Phone Number</label>
-                <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="(000) 000-0000" />
-              </div>
+/* ── Section helpers ─────────────────────────────────────── */
+.section {
+  padding: 4.5rem 2.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
-              <div class="form-group">
-                <label for="eventType">Event Type *</label>
-                <select id="eventType" name="eventType" required>
-                  <option value="" disabled selected>Select an event type</option>
-                  <option value="corporate">Corporate / Company</option>
-                  <option value="birthday">Birthday / Milestone</option>
-                  <option value="rehearsal">Rehearsal Dinner</option>
-                  <option value="buyout">Full Venue Buyout</option>
-                  <option value="other">Other</option>
-                </select>
-              </div>
+.section-label {
+  font-family: var(--font-body);
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .35em;
+  text-transform: uppercase;
+  color: #e82222;
+  margin-bottom: 1rem;
+}
 
-              <div class="form-group">
-                <label for="guestCount">Estimated Guest Count *</label>
-                <select id="guestCount" name="guestCount" required>
-                  <option value="" disabled selected>Select a range</option>
-                  <option value="under20">Under 20</option>
-                  <option value="20-40">20 – 40</option>
-                  <option value="40-75">40 – 75</option>
-                  <option value="75-120">75 – 120</option>
-                  <option value="120+">120+ (Full buyout)</option>
-                </select>
-              </div>
+.section-title {
+  font-family: var(--font-title);
+  font-size: clamp(1.5rem, 3.5vw, 2.6rem);
+  font-weight: 400;
+  letter-spacing: .08em;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
 
-              <div class="form-group">
-                <label for="eventDate">Preferred Date</label>
-                <input type="date" id="eventDate" name="eventDate" />
-              </div>
+.divider {
+  width: 48px;
+  height: 1px;
+  background: var(--gold);
+  margin-bottom: 2rem;
+}
 
-              <div class="form-group">
-                <label for="altDate">Alternate Date</label>
-                <input type="date" id="altDate" name="altDate" />
-              </div>
+/* ── Hero ────────────────────────────────────────────────── */
+.hero {
+  position: relative;
+  height: 92svh;
+  display: flex;
+  align-items: flex-end;
+  padding: 0 2.5rem 3.5rem;
+  overflow: hidden;
+}
 
-              <div class="form-group full">
-                <label for="startTime">Preferred Start Time</label>
-                <input type="time" id="startTime" name="startTime" />
-              </div>
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to top, rgba(13,11,11,1) 0%, rgba(13,11,11,.5) 40%, rgba(13,11,11,.1) 100%),
+    linear-gradient(135deg, #1a1614 0%, #0d0b0b 100%);
+  /* Replace with: background-image: url('images/hero.jpg'); background-size: cover; background-position: center; */
+}
 
-              <div class="form-group full">
-                <label for="budget">Approximate Budget</label>
-                <select id="budget" name="budget">
-                  <option value="" disabled selected>Select a range (optional)</option>
-                  <option value="under1000">Under $1,000</option>
-                  <option value="1000-2500">$1,000 – $2,500</option>
-                  <option value="2500-5000">$2,500 – $5,000</option>
-                  <option value="5000-10000">$5,000 – $10,000</option>
-                  <option value="10000+">$10,000+</option>
-                </select>
-              </div>
+/* Decorative texture bars */
+.hero-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 120px,
+    rgba(201,163,90,.03) 120px,
+    rgba(201,163,90,.03) 121px
+  );
+}
 
-              <div class="form-group full">
-                <label for="details">Tell Us About Your Event</label>
-                <textarea id="details" name="details" placeholder="Share any additional details — theme, special requests, bar program preferences, etc."></textarea>
-              </div>
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 560px;
+}
 
-            </div>
+.hero-eyebrow {
+  font-family: var(--font-body);
+  font-size: .7rem;
+  letter-spacing: .4em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.2rem;
+  opacity: 0;
+  transform: translateY(16px);
+  animation: fadeUp .8s var(--ease-out) .3s forwards;
+}
 
-            <div class="form-submit">
-              <button type="submit" class="btn btn-gold">Submit Inquiry</button>
-          <p class="form-note" style="color:#c8c0b4;">* Required fields. We respond within 24 hours.</p>
-            </div>
-          </form>
+.hero-tagline {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 2.2vw, 1.25rem);
+  font-weight: 300;
+  font-style: italic;
+  color: rgba(255,255,255,.9);
+  margin-bottom: 2.5rem;
+  max-width: 400px;
+  opacity: 0;
+  transform: translateY(16px);
+  animation: fadeUp .8s var(--ease-out) .5s forwards;
+}
 
-        </div>
-      </div>
-    </section>
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: .75rem;
+  font-family: var(--font-body);
+  font-size: .8rem;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid rgba(201,163,90,.4);
+  padding: .85rem 2rem;
+  transition: background .3s ease, color .3s ease, border-color .3s ease;
+  opacity: 0;
+  transform: translateY(16px);
+  animation: fadeUp .8s var(--ease-out) .7s forwards;
+}
 
-    <!-- ══ REASSURANCE STRIP ════════════════════════════════════ -->
-    <section class="section" aria-label="Why host at Drinker's Bar">
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:3rem;text-align:center;" class="reveal">
-        <div>
-          <p style="font-family:var(--font-title);font-size:.7rem;font-weight:700;letter-spacing:.25em;color:#e82222;text-transform:uppercase;margin-bottom:.6rem;">Dedicated Staff</p>
-          <p style="font-size:.9rem;color:#d4cec6;">A dedicated events coordinator and bar staff assigned to your event from start to finish.</p>
-        </div>
-        <div>
-          <p style="font-family:var(--font-title);font-size:.7rem;font-weight:700;letter-spacing:.25em;color:#e82222;text-transform:uppercase;margin-bottom:.6rem;">Custom Menus</p>
-          <p style="font-size:.9rem;color:#d4cec6;">Signature cocktails, curated spirits lists, and bar packages tailored to your guests and occasion.</p>
-        </div>
-        <div>
-          <p style="font-family:var(--font-title);font-size:.7rem;font-weight:700;letter-spacing:.25em;color:#e82222;text-transform:uppercase;margin-bottom:.6rem;">Flexible Spaces</p>
-          <p style="font-size:.9rem;color:#d4cec6;">Section reservations, semi-private arrangements, or full venue buyouts — we work with your needs.</p>
-        </div>
-      </div>
-    </section>
+.hero-cta:hover {
+  background: var(--gold);
+  color: var(--black);
+  border-color: var(--gold);
+}
 
-  </main>
+.hero-cta svg { transition: transform .3s ease; }
+.hero-cta:hover svg { transform: translateX(4px); }
 
-  <!-- ══ FOOTER ══════════════════════════════════════════════ -->
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <a href="index.html" class="bar-name">Drinker's Bar</a>
-        <p>Craft drinks. Real atmosphere.</p>
-      </div>
-      <nav aria-label="Footer navigation">
-        <ul class="footer-nav">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="index.html#offerings">Offerings</a></li>
-          <li><a href="index.html#hours">Visit</a></li>
-          <li><a href="events.html">Private Events</a></li>
-        </ul>
-      </nav>
-      <div class="footer-right">
-        <p>
-          123 Your Street<br>
-          City, State 00000<br>
-          (000) 000-0000<br>
-          hello@drinkersbar.com
-        </p>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>© 2025 Drinker's Bar. All rights reserved.</p>
-      <p>Drink responsibly. Must be 21+.</p>
-    </div>
-  </footer>
+/* Scroll indicator */
+.scroll-hint {
+  position: absolute;
+  bottom: 2rem;
+  right: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .5rem;
+  z-index: 2;
+  opacity: 0;
+  animation: fadeIn 1s ease 1.2s forwards;
+}
 
-  <script>
-    // ── Header scroll state ──
-    const header = document.getElementById('header');
-    window.addEventListener('scroll', () => {
-      header.classList.toggle('scrolled', window.scrollY > 60);
-    }, { passive: true });
+.scroll-hint span {
+  font-size: .6rem;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: var(--muted);
+  writing-mode: vertical-rl;
+}
 
-    // ── Hamburger ──
-    const hamburger = document.getElementById('hamburger');
-    const mobileNav = document.getElementById('mobileNav');
+.scroll-line {
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(to bottom, var(--gold), transparent);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
 
-    hamburger.addEventListener('click', () => {
-      const open = mobileNav.classList.toggle('open');
-      hamburger.classList.toggle('open', open);
-      hamburger.setAttribute('aria-expanded', open);
-      document.body.style.overflow = open ? 'hidden' : '';
-    });
+/* ── Marquee strip ──────────────────────────────────────── */
+.marquee-strip {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+  padding: .9rem 0;
+  background: var(--deep);
+}
 
-    function closeMobile() {
-      mobileNav.classList.remove('open');
-      hamburger.classList.remove('open');
-      hamburger.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
-    }
+.marquee-track {
+  display: flex;
+  white-space: nowrap;
+  animation: marquee 28s linear infinite;
+}
 
-    // ── Scroll reveal ──
-    document.querySelectorAll('.reveal').forEach(el => {
-      new IntersectionObserver((entries) => {
-        entries.forEach(e => {
-          if (e.isIntersecting) {
-            e.target.classList.add('visible');
-          }
-        });
-      }, { threshold: 0.1 }).observe(el);
-    });
+.marquee-item {
+  font-family: var(--font-body);
+  font-size: .65rem;
+  letter-spacing: .35em;
+  text-transform: uppercase;
+  color: #c8c0b4;
+  padding: 0 2.5rem;
+}
 
-    // ── Form submit ──
-    document.getElementById('eventForm').addEventListener('submit', function(e) {
-      e.preventDefault();
+.marquee-item span {
+  color: #e82222;
+  margin: 0 1rem;
+}
 
-      // Basic validation
-      const required = this.querySelectorAll('[required]');
-      let valid = true;
+/* ── About split ─────────────────────────────────────────── */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: center;
+}
 
-      required.forEach(field => {
-        if (!field.value.trim()) {
-          valid = false;
-          field.style.borderBottomColor = 'var(--crimson)';
-          field.addEventListener('input', () => {
-            field.style.borderBottomColor = '';
-          }, { once: true });
-        }
-      });
+.about-visual {
+  position: relative;
+}
 
-      if (!valid) return;
+.about-img-frame {
+  position: relative;
+  aspect-ratio: 3/4;
+  background: var(--deep);
+  overflow: hidden;
+}
 
-      // Show success
-      this.style.display = 'none';
-      document.getElementById('formSuccess').classList.add('visible');
-      document.getElementById('formSuccess').scrollIntoView({ behavior: 'smooth', block: 'center' });
-    });
-  </script>
-</body>
-</html>
+.about-img-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(.85);
+}
+
+/* Gold corner accent */
+.about-img-frame::before {
+  content: '';
+  position: absolute;
+  top: -12px; left: -12px;
+  width: 60px; height: 60px;
+  border-top: 2px solid var(--gold);
+  border-left: 2px solid var(--gold);
+  z-index: 2;
+}
+
+.about-img-frame::after {
+  content: '';
+  position: absolute;
+  bottom: -12px; right: -12px;
+  width: 60px; height: 60px;
+  border-bottom: 2px solid var(--crimson);
+  border-right: 2px solid var(--crimson);
+  z-index: 2;
+}
+
+.about-year {
+  position: absolute;
+  bottom: -1.5rem;
+  right: -2rem;
+  font-family: var(--font-title);
+  font-size: 5rem;
+  color: rgba(201,163,90,.06);
+  line-height: 1;
+  pointer-events: none;
+}
+
+.about-body p {
+  font-size: 1.05rem;
+  color: rgba(255,255,255,.82);
+  margin-bottom: 1.4rem;
+}
+
+.about-body p strong {
+  color: #e82222;
+  font-weight: 700;
+}
+
+/* ── Specials / Offerings ────────────────────────────────── */
+.specials-section {
+  background: var(--deep);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.specials-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.specials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+}
+
+.special-card {
+  background: var(--deep);
+  padding: 3rem 2rem;
+  position: relative;
+  transition: background .3s ease;
+}
+
+.special-card:hover { background: #1e1a18; }
+
+.special-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--crimson), transparent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .4s var(--ease-out);
+}
+
+.special-card:hover::before { transform: scaleX(1); }
+
+.card-icon {
+  font-size: 1.4rem;
+  margin-bottom: 1.2rem;
+  color: #e82222;
+  font-weight: 700;
+}
+
+.card-title {
+  font-family: var(--font-title);
+  font-size: 1rem;
+  letter-spacing: .12em;
+  color: #ffffff;
+  margin-bottom: .75rem;
+}
+
+.card-text {
+  font-size: .95rem;
+  color: #bfb9b1;
+  line-height: 1.7;
+}
+
+/* ── Hours & Location ────────────────────────────────────── */
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: start;
+}
+
+.hours-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.hours-table tr {
+  border-bottom: 1px solid var(--border);
+}
+
+.hours-table td {
+  padding: .75rem 0;
+  font-size: .95rem;
+  color: rgba(255,255,255,.78);
+}
+
+.hours-table td:first-child {
+  color: #ffffff;
+  font-weight: 400;
+}
+
+.hours-table td:last-child { text-align: right; }
+
+.address-block {
+  font-size: 1rem;
+  color: rgba(255,255,255,.82);
+  line-height: 2;
+}
+
+.address-block strong {
+  display: block;
+  font-family: var(--font-title);
+  font-size: .8rem;
+  font-weight: 700;
+  letter-spacing: .18em;
+  color: #e82222;
+  margin-bottom: .5rem;
+}
+
+/* ── CTA Banner ──────────────────────────────────────────── */
+.cta-banner {
+  background: var(--crimson-dim);
+  border-top: 1px solid rgba(155,26,26,.4);
+  border-bottom: 1px solid rgba(155,26,26,.4);
+  text-align: center;
+  padding: 5rem 2rem;
+}
+
+.cta-banner .section-title { margin-bottom: .75rem; }
+
+.cta-banner p {
+  font-size: 1rem;
+  color: rgba(255,255,255,.85);
+  margin-bottom: 2.5rem;
+}
+
+/* ── Buttons ─────────────────────────────────────────────── */
+.btn {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: .78rem;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  padding: .9rem 2.2rem;
+  border: 1px solid currentColor;
+  transition: all .3s ease;
+  cursor: pointer;
+}
+
+.btn-gold {
+  color: var(--gold);
+  border-color: rgba(201,163,90,.5);
+}
+
+.btn-gold:hover {
+  background: var(--gold);
+  color: var(--black);
+  border-color: var(--gold);
+}
+
+.btn-cream {
+  color: var(--cream);
+  border-color: rgba(240,234,216,.4);
+}
+
+.btn-cream:hover {
+  background: var(--cream);
+  color: var(--black);
+}
+
+.btn-crimson {
+  color: var(--crimson);
+  border-color: rgba(155,26,26,.5);
+}
+
+.btn-crimson:hover {
+  background: var(--crimson);
+  color: var(--cream);
+}
+
+/* ── Footer ──────────────────────────────────────────────── */
+.site-footer {
+  background: var(--deep);
+  border-top: 1px solid var(--border);
+  padding: 3.5rem 2.5rem 2rem;
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: start;
+  gap: 3rem;
+}
+
+.footer-brand .bar-name {
+  display: block;
+  font-size: 1rem;
+  margin-bottom: .5rem;
+}
+
+.footer-brand p {
+  font-size: .8rem;
+  color: #c8c0b4;
+  letter-spacing: .1em;
+}
+
+.footer-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  list-style: none;
+}
+
+.footer-nav a {
+  font-size: .72rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: #c8c0b4;
+}
+
+.footer-nav a:hover { color: #e82222; }
+
+.footer-right {
+  text-align: right;
+}
+
+.footer-right p {
+  font-size: .78rem;
+  color: #c8c0b4;
+  line-height: 1.9;
+}
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: 2.5rem auto 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-bottom p {
+  font-size: .7rem;
+  letter-spacing: .12em;
+  color: rgba(200,192,180,.5);
+}
+
+/* ── Form (events page) ──────────────────────────────────── */
+.form-section {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: .45rem;
+}
+
+.form-group.full { grid-column: 1 / -1; }
+
+.form-group label {
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: #e82222;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255,255,255,.2);
+  color: #ffffff;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  padding: .65rem 0;
+  outline: none;
+  transition: border-color .3s ease;
+  width: 100%;
+  -webkit-appearance: none;
+}
+
+.form-group select {
+  background: var(--deep);
+  padding: .65rem .5rem;
+}
+
+.form-group select option { background: var(--deep); }
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--gold);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* placeholder */
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: rgba(138,125,110,.5);
+  font-style: italic;
+}
+
+.form-submit {
+  margin-top: 2.5rem;
+  text-align: center;
+}
+
+.form-submit .btn {
+  font-size: .8rem;
+  padding: 1rem 3rem;
+}
+
+.form-note {
+  margin-top: 1rem;
+  font-size: .8rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* Success state */
+.form-success {
+  display: none;
+  text-align: center;
+  padding: 3rem;
+  border: 1px solid var(--border);
+}
+
+.form-success.visible { display: block; }
+
+.form-success p {
+  font-size: 1.1rem;
+  color: var(--cream);
+  font-style: italic;
+}
+
+/* ── Page hero (inner pages) ──────────────────────────────── */
+.page-hero {
+  padding: 10rem 2.5rem 5rem;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+
+.page-hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(ellipse at 20% 50%, rgba(155,26,26,.12) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.page-hero-inner { max-width: 1200px; margin: 0 auto; }
+
+/* ── Animations ──────────────────────────────────────────── */
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: .3; transform: scaleY(1); }
+  50%       { opacity: 1;  transform: scaleY(1.15); }
+}
+
+/* Fade-in on scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .7s var(--ease-out), transform .7s var(--ease-out);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .about-grid,
+  .info-grid { grid-template-columns: 1fr; gap: 3rem; }
+
+  .specials-grid { grid-template-columns: 1fr; }
+
+  .footer-inner { grid-template-columns: 1fr; text-align: center; }
+  .footer-right { text-align: center; }
+  .footer-bottom { flex-direction: column; gap: .75rem; text-align: center; }
+
+  .form-grid { grid-template-columns: 1fr; }
+  .form-group.full { grid-column: 1; }
+}
+
+@media (max-width: 768px) {
+  .section { padding: 3.5rem 1.5rem; }
+  .hero { padding: 0 1.5rem 3rem; }
+  .site-header { padding: 1.2rem 1.5rem; }
+  .site-nav { display: none; }
+  .hamburger { display: flex; }
+  .site-header.scrolled { padding: .8rem 1.5rem; }
+  .about-year { font-size: 3.5rem; right: 0; bottom: -1rem; }
+  .page-hero { padding: 8rem 1.5rem 3.5rem; }
+}
+
+@media (max-width: 480px) {
+  .specials-grid { gap: 0; }
+  .special-card { padding: 2rem 1.5rem; }
+  .cta-banner { padding: 3.5rem 1.5rem; }
+  .footer-nav { flex-direction: row; flex-wrap: wrap; justify-content: center; }
+}
