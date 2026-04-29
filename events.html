@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Host your private event at Drinker's Bar. Intimate gatherings, corporate functions, full buyouts, and custom bar programs. Inquire today." />
+  <meta name="keywords" content="Drinker's Bar private events, bar venue rental, corporate event bar, private party bar, event inquiry" />
+  <meta property="og:title" content="Private Events — Drinker's Bar" />
+  <meta property="og:description" content="Make it yours for the night. Drinker's Bar hosts private events, corporate functions, and celebrations worth remembering." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://drinkersbar.com/events.html" />
+  <title>Private Events — Drinker's Bar</title>
+  <link rel="stylesheet" href="style.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "EventVenue",
+    "name": "Drinker's Bar — Private Events",
+    "description": "Upscale bar venue available for private events, buyouts, corporate functions, and celebrations.",
+    "url": "https://drinkersbar.com/events.html"
+  }
+  </script>
+  <style>
+    /* ── Page-specific tweaks ── */
+    .event-types {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin: 4rem 0;
+    }
+
+    .event-type-card {
+      background: var(--deep);
+      padding: 2.2rem 2rem;
+      transition: background .3s ease;
+    }
+
+    .event-type-card:hover { background: #1e1a18; }
+
+    .event-type-card h3 {
+      font-family: var(--font-title);
+      font-size: .9rem;
+      letter-spacing: .14em;
+      color: var(--gold);
+      margin-bottom: .5rem;
+      text-transform: uppercase;
+    }
+
+    .event-type-card p {
+      font-size: .92rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .capacity-bar {
+      display: flex;
+      gap: 3rem;
+      border: 1px solid var(--border);
+      padding: 2rem 2.5rem;
+      margin-bottom: 4rem;
+      background: var(--deep);
+    }
+
+    .cap-stat { text-align: center; flex: 1; }
+
+    .cap-stat .num {
+      display: block;
+      font-family: var(--font-title);
+      font-size: 2.2rem;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: .35rem;
+    }
+
+    .cap-stat .label {
+      font-size: .68rem;
+      letter-spacing: .3em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .cap-divider {
+      width: 1px;
+      background: var(--border);
+      align-self: stretch;
+    }
+
+    @media (max-width: 600px) {
+      .event-types { grid-template-columns: 1fr; }
+      .capacity-bar { flex-wrap: wrap; gap: 1.5rem; }
+      .cap-divider { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══ HEADER ══════════════════════════════════════════════ -->
+  <header class="site-header" id="header">
+    <a href="index.html" class="bar-name">Drinker's Bar</a>
+    <nav aria-label="Primary navigation">
+      <ul class="site-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#offerings">Offerings</a></li>
+        <li><a href="index.html#hours">Visit</a></li>
+        <li><a href="events.html">Private Events</a></li>
+      </ul>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- Mobile nav drawer -->
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+    <a href="index.html" onclick="closeMobile()">Home</a>
+    <a href="index.html#offerings" onclick="closeMobile()">Offerings</a>
+    <a href="index.html#hours" onclick="closeMobile()">Visit</a>
+    <a href="events.html" onclick="closeMobile()">Private Events</a>
+  </nav>
+
+  <main>
+
+    <!-- ══ PAGE HERO ══════════════════════════════════════════ -->
+    <section class="page-hero" aria-labelledby="events-heading">
+      <div class="page-hero-inner">
+        <p class="section-label">Private Events</p>
+        <h1 class="section-title" id="events-heading">Make it yours<br>for the night.</h1>
+        <div class="divider"></div>
+        <p style="font-size:1.05rem;color:rgba(240,234,216,.65);max-width:520px;font-style:italic;">
+          From an intimate dinner with your closest people to a full-venue buyout — we build the experience around you.
+        </p>
+      </div>
+    </section>
+
+    <!-- ══ EVENT TYPES + STATS ════════════════════════════════ -->
+    <section class="section" aria-label="Event types and capacity">
+
+      <!-- Capacity bar -->
+      <div class="capacity-bar reveal" role="list" aria-label="Venue capacity stats">
+        <div class="cap-stat" role="listitem">
+          <span class="num">120</span>
+          <span class="label">Standing capacity</span>
+        </div>
+        <div class="cap-divider" aria-hidden="true"></div>
+        <div class="cap-stat" role="listitem">
+          <span class="num">60</span>
+          <span class="label">Seated capacity</span>
+        </div>
+        <div class="cap-divider" aria-hidden="true"></div>
+        <div class="cap-stat" role="listitem">
+          <span class="num">Full</span>
+          <span class="label">Buyout available</span>
+        </div>
+        <div class="cap-divider" aria-hidden="true"></div>
+        <div class="cap-stat" role="listitem">
+          <span class="num">Custom</span>
+          <span class="label">Bar programs</span>
+        </div>
+      </div>
+
+      <!-- Event types -->
+      <p class="section-label reveal">What We Host</p>
+      <h2 class="section-title reveal">Every occasion. No exceptions.</h2>
+      <div class="divider reveal"></div>
+
+      <div class="event-types reveal">
+        <article class="event-type-card">
+          <h3>Corporate &amp; Company</h3>
+          <p>Happy hours, team events, client entertainment, and launch nights. We handle the bar — you handle the guest list.</p>
+        </article>
+        <article class="event-type-card">
+          <h3>Birthdays &amp; Milestones</h3>
+          <p>Reserve the whole room or just a section. Custom cocktail menus, bottle service, and a space that actually feels special.</p>
+        </article>
+        <article class="event-type-card">
+          <h3>Rehearsal Dinners</h3>
+          <p>A refined, relaxed evening before the big day. We work with your timeline, your headcount, and your vision.</p>
+        </article>
+        <article class="event-type-card">
+          <h3>Private Buyouts</h3>
+          <p>Take the entire venue. Full staff, full bar program, full focus on your event from open to close.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ══ INQUIRY FORM ════════════════════════════════════════ -->
+    <section class="specials-section" id="inquiry">
+      <div class="section">
+        <div style="text-align:center;margin-bottom:3.5rem;">
+          <p class="section-label reveal">Get In Touch</p>
+          <h2 class="section-title reveal">Start the conversation.</h2>
+          <div class="divider reveal" style="margin:0 auto;"></div>
+          <p class="reveal" style="font-size:.95rem;color:var(--muted);margin-top:1rem;font-style:italic;">
+            Fill out the form below and our events team will be in touch within 24 hours.
+          </p>
+        </div>
+
+        <div class="form-section reveal">
+
+          <!-- Success message (shown on submit) -->
+          <div class="form-success" id="formSuccess" role="alert">
+            <div class="divider" style="margin:0 auto 1.5rem;"></div>
+            <p>Thank you. We'll be in touch within 24 hours to discuss your event.</p>
+            <br>
+            <a href="index.html" class="btn btn-gold">Return Home</a>
+          </div>
+
+          <form id="eventForm" novalidate aria-label="Private event inquiry form">
+            <div class="form-grid">
+
+              <div class="form-group">
+                <label for="firstName">First Name *</label>
+                <input type="text" id="firstName" name="firstName" autocomplete="given-name" placeholder="Jane" required />
+              </div>
+
+              <div class="form-group">
+                <label for="lastName">Last Name *</label>
+                <input type="text" id="lastName" name="lastName" autocomplete="family-name" placeholder="Smith" required />
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" autocomplete="email" placeholder="jane@example.com" required />
+              </div>
+
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="(000) 000-0000" />
+              </div>
+
+              <div class="form-group">
+                <label for="eventType">Event Type *</label>
+                <select id="eventType" name="eventType" required>
+                  <option value="" disabled selected>Select an event type</option>
+                  <option value="corporate">Corporate / Company</option>
+                  <option value="birthday">Birthday / Milestone</option>
+                  <option value="rehearsal">Rehearsal Dinner</option>
+                  <option value="buyout">Full Venue Buyout</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="guestCount">Estimated Guest Count *</label>
+                <select id="guestCount" name="guestCount" required>
+                  <option value="" disabled selected>Select a range</option>
+                  <option value="under20">Under 20</option>
+                  <option value="20-40">20 – 40</option>
+                  <option value="40-75">40 – 75</option>
+                  <option value="75-120">75 – 120</option>
+                  <option value="120+">120+ (Full buyout)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="eventDate">Preferred Date</label>
+                <input type="date" id="eventDate" name="eventDate" />
+              </div>
+
+              <div class="form-group">
+                <label for="altDate">Alternate Date</label>
+                <input type="date" id="altDate" name="altDate" />
+              </div>
+
+              <div class="form-group full">
+                <label for="startTime">Preferred Start Time</label>
+                <input type="time" id="startTime" name="startTime" />
+              </div>
+
+              <div class="form-group full">
+                <label for="budget">Approximate Budget</label>
+                <select id="budget" name="budget">
+                  <option value="" disabled selected>Select a range (optional)</option>
+                  <option value="under1000">Under $1,000</option>
+                  <option value="1000-2500">$1,000 – $2,500</option>
+                  <option value="2500-5000">$2,500 – $5,000</option>
+                  <option value="5000-10000">$5,000 – $10,000</option>
+                  <option value="10000+">$10,000+</option>
+                </select>
+              </div>
+
+              <div class="form-group full">
+                <label for="details">Tell Us About Your Event</label>
+                <textarea id="details" name="details" placeholder="Share any additional details — theme, special requests, bar program preferences, etc."></textarea>
+              </div>
+
+            </div>
+
+            <div class="form-submit">
+              <button type="submit" class="btn btn-gold">Submit Inquiry</button>
+              <p class="form-note">* Required fields. We respond within 24 hours.</p>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ REASSURANCE STRIP ════════════════════════════════════ -->
+    <section class="section" aria-label="Why host at Drinker's Bar">
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:3rem;text-align:center;" class="reveal">
+        <div>
+          <p style="font-family:var(--font-title);font-size:.7rem;letter-spacing:.25em;color:var(--gold);text-transform:uppercase;margin-bottom:.6rem;">Dedicated Staff</p>
+          <p style="font-size:.9rem;color:var(--muted);">A dedicated events coordinator and bar staff assigned to your event from start to finish.</p>
+        </div>
+        <div>
+          <p style="font-family:var(--font-title);font-size:.7rem;letter-spacing:.25em;color:var(--gold);text-transform:uppercase;margin-bottom:.6rem;">Custom Menus</p>
+          <p style="font-size:.9rem;color:var(--muted);">Signature cocktails, curated spirits lists, and bar packages tailored to your guests and occasion.</p>
+        </div>
+        <div>
+          <p style="font-family:var(--font-title);font-size:.7rem;letter-spacing:.25em;color:var(--gold);text-transform:uppercase;margin-bottom:.6rem;">Flexible Spaces</p>
+          <p style="font-size:.9rem;color:var(--muted);">Section reservations, semi-private arrangements, or full venue buyouts — we work with your needs.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══ FOOTER ══════════════════════════════════════════════ -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="bar-name">Drinker's Bar</a>
+        <p>Craft drinks. Real atmosphere.</p>
+      </div>
+      <nav aria-label="Footer navigation">
+        <ul class="footer-nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#offerings">Offerings</a></li>
+          <li><a href="index.html#hours">Visit</a></li>
+          <li><a href="events.html">Private Events</a></li>
+        </ul>
+      </nav>
+      <div class="footer-right">
+        <p>
+          123 Your Street<br>
+          City, State 00000<br>
+          (000) 000-0000<br>
+          hello@drinkersbar.com
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Drinker's Bar. All rights reserved.</p>
+      <p>Drink responsibly. Must be 21+.</p>
+    </div>
+  </footer>
+
+  <script>
+    // ── Header scroll state ──
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    // ── Hamburger ──
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobileNav');
+
+    hamburger.addEventListener('click', () => {
+      const open = mobileNav.classList.toggle('open');
+      hamburger.classList.toggle('open', open);
+      hamburger.setAttribute('aria-expanded', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+
+    function closeMobile() {
+      mobileNav.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
+    // ── Scroll reveal ──
+    document.querySelectorAll('.reveal').forEach(el => {
+      new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1 }).observe(el);
+    });
+
+    // ── Form submit ──
+    document.getElementById('eventForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      // Basic validation
+      const required = this.querySelectorAll('[required]');
+      let valid = true;
+
+      required.forEach(field => {
+        if (!field.value.trim()) {
+          valid = false;
+          field.style.borderBottomColor = 'var(--crimson)';
+          field.addEventListener('input', () => {
+            field.style.borderBottomColor = '';
+          }, { once: true });
+        }
+      });
+
+      if (!valid) return;
+
+      // Show success
+      this.style.display = 'none';
+      document.getElementById('formSuccess').classList.add('visible');
+      document.getElementById('formSuccess').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+  </script>
+</body>
+</html>
