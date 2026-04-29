@@ -2,7 +2,269 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Drinker's Bar — an upscale, rugged watering hole serving craft cocktails, premium spirits, and unforgettable nights. Est. in the spirit of good company." />
+  <meta name="keywords" content="Drinker's Bar, craft cocktails, upscale bar, premium spirits, bar events, private events bar" />
+  <meta property="og:title" content="Drinker's Bar" />
+  <meta property="og:description" content="Craft cocktails. Premium spirits. A bar built for those who drink with intention." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://drinkersbar.com" />
+  <title>Drinker's Bar</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Structured data for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BarOrPub",
+    "name": "Drinker's Bar",
+    "description": "An upscale, rugged bar serving craft cocktails, premium spirits, and hosting private events.",
+    "url": "https://drinkersbar.com",
+    "servesCuisine": "Cocktails & Spirits",
+    "openingHours": ["Mo-Th 16:00-02:00","Fr-Sa 14:00-03:00","Su 14:00-00:00"]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ══ HEADER ══════════════════════════════════════════════ -->
+  <header class="site-header" id="header">
+    <a href="index.html" class="bar-name">Drinker's Bar</a>
+    <nav aria-label="Primary navigation">
+      <ul class="site-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#offerings">Offerings</a></li>
+        <li><a href="#hours">Visit</a></li>
+        <li><a href="events.html">Private Events</a></li>
+      </ul>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- Mobile nav drawer -->
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+    <a href="index.html" onclick="closeMobile()">Home</a>
+    <a href="#offerings" onclick="closeMobile()">Offerings</a>
+    <a href="#hours" onclick="closeMobile()">Visit</a>
+    <a href="events.html" onclick="closeMobile()">Private Events</a>
+  </nav>
+
+  <main>
+
+    <!-- ══ HERO ═══════════════════════════════════════════════ -->
+    <section class="hero" aria-label="Welcome to Drinker's Bar">
+      <div class="hero-bg"></div>
+      <div class="hero-content">
+        <p class="hero-eyebrow">Est. — Handcrafted Spirits</p>
+        <p class="hero-tagline">A bar that doesn't apologize for what it is.</p>
+        <a href="#offerings" class="hero-cta">
+          Explore the Bar
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2">
+            <path d="M3 8h10M9 4l4 4-4 4"/>
+          </svg>
+        </a>
+      </div>
+      <div class="scroll-hint" aria-hidden="true">
+        <div class="scroll-line"></div>
+        <span>Scroll</span>
+      </div>
+    </section>
+
+    <!-- ══ MARQUEE ═════════════════════════════════════════════ -->
+    <div class="marquee-strip" aria-hidden="true">
+      <div class="marquee-track">
+        <span class="marquee-item">Craft Cocktails <span>✦</span></span>
+        <span class="marquee-item">Premium Spirits <span>✦</span></span>
+        <span class="marquee-item">Private Events <span>✦</span></span>
+        <span class="marquee-item">Local Drafts <span>✦</span></span>
+        <span class="marquee-item">Curated Wines <span>✦</span></span>
+        <span class="marquee-item">Aged Whiskey <span>✦</span></span>
+        <span class="marquee-item">Drinker's Bar <span>✦</span></span>
+        <!-- duplicate for seamless loop -->
+        <span class="marquee-item">Craft Cocktails <span>✦</span></span>
+        <span class="marquee-item">Premium Spirits <span>✦</span></span>
+        <span class="marquee-item">Private Events <span>✦</span></span>
+        <span class="marquee-item">Local Drafts <span>✦</span></span>
+        <span class="marquee-item">Curated Wines <span>✦</span></span>
+        <span class="marquee-item">Aged Whiskey <span>✦</span></span>
+        <span class="marquee-item">Drinker's Bar <span>✦</span></span>
+      </div>
+    </div>
+
+    <!-- ══ ABOUT ═══════════════════════════════════════════════ -->
+    <section class="section" aria-labelledby="about-heading">
+      <div class="about-grid">
+        <div class="about-visual reveal">
+          <div class="about-img-frame">
+            <!-- Replace src with your image: <img src="images/interior.jpg" alt="Interior of Drinker's Bar" /> -->
+            <div style="width:100%;height:100%;background:linear-gradient(160deg,#2a1f18 0%,#1a1614 60%,#0d0b0b 100%);display:flex;align-items:center;justify-content:center;">
+              <span style="font-family:var(--font-title);font-size:.75rem;letter-spacing:.3em;color:var(--border);text-transform:uppercase;">Your Photo Here</span>
+            </div>
+          </div>
+          <div class="about-year" aria-hidden="true">DB</div>
+        </div>
+        <div class="about-body">
+          <p class="section-label reveal">Our Story</p>
+          <h2 class="section-title reveal" id="about-heading">Raw edges.<br>Refined pours.</h2>
+          <div class="divider reveal"></div>
+          <p class="reveal">
+            Drinker's Bar was built for people who show up as they are. No pretense, no performance — just <strong>exceptional drinks</strong>, a room that earns your trust, and company worth keeping.
+          </p>
+          <p class="reveal">
+            We stock our shelves with intention: rare bottles you won't find at the chain around the corner, local drafts worth the glass, and cocktails built from scratch by bartenders who know what they're doing.
+          </p>
+          <p class="reveal">
+            This is a place for <strong>slow evenings and good decisions</strong> — or at least the right kind of bad ones.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ OFFERINGS ══════════════════════════════════════════ -->
+    <section class="specials-section" id="offerings" aria-labelledby="offerings-heading">
+      <div class="section">
+        <div class="specials-header">
+          <p class="section-label reveal">What We Pour</p>
+          <h2 class="section-title reveal" id="offerings-heading">The bar program</h2>
+          <div class="divider reveal" style="margin:0 auto 0;"></div>
+        </div>
+        <div class="specials-grid reveal">
+          <article class="special-card">
+            <div class="card-icon" aria-hidden="true">◆</div>
+            <h3 class="card-title">Craft Cocktails</h3>
+            <p class="card-text">Seasonal programs built around quality ingredients, proper technique, and no shortcuts. Stirred, shaken, or built — all made to order.</p>
+          </article>
+          <article class="special-card">
+            <div class="card-icon" aria-hidden="true">◆</div>
+            <h3 class="card-title">Whiskey & Spirits</h3>
+            <p class="card-text">A curated wall of aged whiskeys, rare bourbons, single malts, and spirits worth sipping neat. Our staff can guide you through every shelf.</p>
+          </article>
+          <article class="special-card">
+            <div class="card-icon" aria-hidden="true">◆</div>
+            <h3 class="card-title">Draft & Bottle</h3>
+            <p class="card-text">Rotating local taps, cold bottles, and the classics you already know. Unpretentious by design — exceptional by habit.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ HOURS & LOCATION ════════════════════════════════════ -->
+    <section class="section" id="hours" aria-labelledby="hours-heading">
+      <div class="info-grid">
+        <div>
+          <p class="section-label reveal">Plan Your Visit</p>
+          <h2 class="section-title reveal" id="hours-heading">Hours &amp; Location</h2>
+          <div class="divider reveal"></div>
+          <table class="hours-table reveal" aria-label="Bar hours">
+            <tbody>
+              <tr><td>Monday – Thursday</td><td>4:00 pm – 2:00 am</td></tr>
+              <tr><td>Friday – Saturday</td><td>2:00 pm – 3:00 am</td></tr>
+              <tr><td>Sunday</td><td>2:00 pm – 12:00 am</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="reveal">
+          <div class="address-block">
+            <strong>Find Us</strong>
+            123 Your Street<br>
+            City, State 00000<br><br>
+            <strong>Contact</strong>
+            (000) 000-0000<br>
+            hello@drinkersbar.com<br><br>
+            <strong>Parking</strong>
+            Street parking available.<br>Validated lot on 2nd Ave.
+          </div>
+          <br>
+          <a href="events.html" class="btn btn-gold">Host an Event →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ CTA BANNER ══════════════════════════════════════════ -->
+    <section class="cta-banner" aria-label="Private events call to action">
+      <p class="section-label">Private Events</p>
+      <h2 class="section-title">Make it yours for the night.</h2>
+      <p>From intimate gatherings to full buyouts — Drinker's Bar is available for private events, corporate functions, and anything worth celebrating.</p>
+      <a href="events.html" class="btn btn-cream">Inquire About Events</a>
+    </section>
+
+  </main>
+
+  <!-- ══ FOOTER ══════════════════════════════════════════════ -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="bar-name">Drinker's Bar</a>
+        <p>Craft drinks. Real atmosphere.</p>
+      </div>
+      <nav aria-label="Footer navigation">
+        <ul class="footer-nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#offerings">Offerings</a></li>
+          <li><a href="#hours">Visit</a></li>
+          <li><a href="events.html">Private Events</a></li>
+        </ul>
+      </nav>
+      <div class="footer-right">
+        <p>
+          123 Your Street<br>
+          City, State 00000<br>
+          (000) 000-0000<br>
+          hello@drinkersbar.com
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Drinker's Bar. All rights reserved.</p>
+      <p>Drink responsibly. Must be 21+.</p>
+    </div>
+  </footer>
+
+  <script>
+    // ── Header scroll state ──
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    // ── Hamburger / mobile nav ──
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobileNav');
+
+    hamburger.addEventListener('click', () => {
+      const open = mobileNav.classList.toggle('open');
+      hamburger.classList.toggle('open', open);
+      hamburger.setAttribute('aria-expanded', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+
+    function closeMobile() {
+      mobileNav.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
+    // ── Scroll reveal ──
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    reveals.forEach(el => io.observe(el));
+  </script>
+</body>
+</html>" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Drinker's Bar — an upscale, rugged watering hole serving craft cocktails, premium spirits, and unforgettable nights. Est. in the spirit of good company." />
   <meta name="keywords" content="Drinker's Bar, craft cocktails, upscale bar, premium spirits, bar events, private events bar" />
   <meta property="og:title" content="Drinker's Bar" />
