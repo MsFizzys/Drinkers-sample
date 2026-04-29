@@ -181,14 +181,15 @@ body::before {
 
 /* ── Section helpers ─────────────────────────────────────── */
 .section {
-  padding: 7rem 2.5rem;
+  padding: 4.5rem 2.5rem;
   max-width: 1200px;
   margin: 0 auto;
 }
 
 .section-label {
   font-family: var(--font-body);
-  font-size: .7rem;
+  font-size: .75rem;
+  font-weight: 700;
   letter-spacing: .35em;
   text-transform: uppercase;
   color: #e82222;
@@ -215,10 +216,10 @@ body::before {
 /* ── Hero ────────────────────────────────────────────────── */
 .hero {
   position: relative;
-  height: 100svh;
+  height: 92svh;
   display: flex;
   align-items: flex-end;
-  padding: 0 2.5rem 5rem;
+  padding: 0 2.5rem 3.5rem;
   overflow: hidden;
 }
 
@@ -426,7 +427,7 @@ body::before {
 
 .about-body p strong {
   color: #e82222;
-  font-weight: 500;
+  font-weight: 700;
 }
 
 /* ── Specials / Offerings ────────────────────────────────── */
@@ -474,7 +475,8 @@ body::before {
 .card-icon {
   font-size: 1.4rem;
   margin-bottom: 1.2rem;
-  color: var(--gold);
+  color: #e82222;
+  font-weight: 700;
 }
 
 .card-title {
@@ -531,6 +533,7 @@ body::before {
   display: block;
   font-family: var(--font-title);
   font-size: .8rem;
+  font-weight: 700;
   letter-spacing: .18em;
   color: #e82222;
   margin-bottom: .5rem;
@@ -689,7 +692,8 @@ body::before {
 .form-group.full { grid-column: 1 / -1; }
 
 .form-group label {
-  font-size: .68rem;
+  font-size: .72rem;
+  font-weight: 700;
   letter-spacing: .28em;
   text-transform: uppercase;
   color: #e82222;
@@ -834,8 +838,8 @@ body::before {
 }
 
 @media (max-width: 768px) {
-  .section { padding: 5rem 1.5rem; }
-  .hero { padding: 0 1.5rem 4rem; }
+  .section { padding: 3.5rem 1.5rem; }
+  .hero { padding: 0 1.5rem 3rem; }
   .site-header { padding: 1.2rem 1.5rem; }
   .site-nav { display: none; }
   .hamburger { display: flex; }
